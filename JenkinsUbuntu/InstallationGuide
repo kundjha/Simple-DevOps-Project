@@ -1,0 +1,46 @@
+SetUp CI/CD Server with Jenkins and Docker 
+--------------
+
+#Update package manager 
+sudo apt update
+
+#Install Java
+sudo apt install openjdk-8-jdk -y
+
+#Install Jenkins
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+sudo apt update
+
+sudo apt install jenkins
+
+sudo systemctl status jenkins
+
+#Install Docker
+
+sudo apt install docker.io -y
+
+#Add Jenkins user to docker
+
+sudo usermod -aG docker jenkins
+
+#Restart Jenkins
+sudo systemctl restart jenkins
+
+--------------
+Install Docker in Deployment Server
+------
+
+#Update package manager
+sudo apt update
+
+#install Docker
+sudo apt install docker.io -y
+
+#Add Ubuntu User to docker
+ sudo usermod -aG docker ubuntu
+
+Exit and relogin 
